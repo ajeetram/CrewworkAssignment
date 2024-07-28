@@ -1,0 +1,100 @@
+/* auth.module.css */
+.authcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh; 
+    background: linear-gradient(to bottom, #feed9b2e, #a29bfe);
+  }
+  
+  .authform {
+    background-color: #fff;
+    margin-top: 100px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  .authform h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; 
+    margin-bottom: 20px; 
+  }
+
+  .authform span
+  {
+    color: #6c5ce7;
+    margin: 0ch 0.2ch;
+  }
+  
+  .formInput {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .formInput input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0; 
+
+  }
+  .formInput input:focus {
+    outline:2px solid #cccccc; ;
+  
+  }
+  
+  .formInput svg {
+    margin-left: -30px; 
+    cursor: pointer;
+  }
+
+  .submitButton {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c5ce7c7 ;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submitButton:hover {
+    background-color: #6c5ce7; 
+  }
+  
+  .authform p
+  {
+    margin: 20px;
+    font-size: 12px;
+  }
+
+  
+@media (max-width: 768px) {
+  .authform {
+    max-width: 90%;
+    padding: 15px;
+  }
+  
+  .authform h2 {
+    font-size: 18px;
+  }
+  
+  .formInput input {
+    padding: 8px;
+  }
+  
+  .submitButton {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+  
