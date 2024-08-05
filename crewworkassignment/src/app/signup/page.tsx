@@ -34,9 +34,12 @@ export default function Logout() {
     }
   };
 
-  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => setName(e.target.value);
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setName(e.target.value);
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setEmail(e.target.value);
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setPassword(e.target.value);
 
   return (
     <div className={styles.authcontainer}>
@@ -45,10 +48,23 @@ export default function Logout() {
           Welcome to <span>Workflo</span>!
         </h2>
         <div className={styles.formInput}>
-          <input type="text" placeholder="Full name" name="name" value={name} required onChange={handleNameChange} />
+          <input
+            type="text"
+            placeholder="Full name"
+            name="name"
+            value={name}
+            required
+            onChange={handleNameChange}
+          />
         </div>
         <div className={styles.formInput}>
-          <input type="email" placeholder="Your email" name="email" required onChange={handleEmailChange} />
+          <input
+            type="email"
+            placeholder="Your email"
+            name="email"
+            required
+            onChange={handleEmailChange}
+          />
         </div>
         <div className={styles.formInput}>
           <input
@@ -64,7 +80,10 @@ export default function Logout() {
             <VscEyeClosed onClick={() => setSeePass(true)} />
           )}
         </div>
-        <button className={styles.submitButton} onClick={() => register(name, email, password)}>
+        <button
+          className={styles.submitButton}
+          onClick={() => register(name, email, password)}
+        >
           Sign up
         </button>
         <p>

@@ -1,19 +1,25 @@
-"use client"; // This is a client component 
-import { useState,ChangeEvent } from "react";
+"use client"; 
+import { useState,ChangeEvent, } from "react";
 import styles from "./auth.module.css"
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import toast from "react-hot-toast";
+import { useMyContext } from "../context/MyContext";
+
 
 export default function login() {
 
   const [seePass,setSeePass] = useState(false); 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
+  const {auth,setAuth}=useMyContext();
+  const router= useRouter();
   
   const login = async(email:string,password:string)=>{
+
+     
     try {
       if(!email || !password)
       {
@@ -28,9 +34,16 @@ export default function login() {
         },
       });
       const data = await res.json();
-      if(res.ok)
+      if(res && res.ok)
       {
         toast.success(data.message);
+        setAuth({...auth,
+          user:data.user,
+          token:data.token,
+          userId:data?.user?.userId,
+        })
+        localStorage.setItem("auth", JSON.stringify(data))
+        router.push('/dashboard');
       }
       else
       {

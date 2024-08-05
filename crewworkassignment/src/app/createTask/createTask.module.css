@@ -1,0 +1,188 @@
+.container {
+    width:760px;
+    padding: 0px 24px 0px 24px;
+    top:16px;
+  }
+  
+  .openPopupBtn {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 760px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .popup.show {
+    animation: slideIn 0.7s forwards;
+  }
+  
+  .popup.hide {
+    animation: slideOut 0.7s forwards;
+  }
+  .popup.fullscr
+  {
+    width:100%;
+  }
+
+  .submitBtn
+  {
+    padding:8px;
+    border-radius:4px;
+    border: 1px solid #DDDDDD;
+    background: linear-gradient(360deg, #4B36CC 0%, #9C93D4 107.69%);
+    color:#FFFFFF;
+    cursor:pointer;
+  }
+  .submitBtn:hover
+  {
+    transform: scale(0.95);
+    background: linear-gradient(360deg, #4336cc 0%, #9C93D4 107.69%);
+
+  }
+
+  
+  @keyframes slideIn {
+    from {
+      right: -100%;
+    }
+    to {
+      right: 0;
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      right: 0;
+    }
+    to {
+      right: -100%;
+    }
+  }
+  
+  .closePopupBtn {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+.topbar
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:38px;
+}
+
+#rightItem , #leftItem
+{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  gap:16px;
+  cursor:pointer;
+}
+
+#iconSize
+{
+  width:24px;
+  height:24px;
+}
+
+#iconbtn
+{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  padding:8px;
+  background:#F4F4F4;
+  border-radius: 4px;
+  align-items:center;
+  cursor:pointer;
+}
+
+.content
+{
+  display:flex;
+  flex-direction:column;
+  row-gap:32px;
+}
+
+.content>input
+{
+  font-family: Barlow;
+  border:none;
+  outline:none;
+  background: transparent;
+  font-size:48px;
+  line-height:57px;
+  font-weight:600px;
+}
+
+.taskBar
+{
+  display:flex;
+  flex-direction: row;
+  gap:60px;
+
+}
+.taskData
+{
+  display:flex;
+  flex-direction: column;
+  row-gap:32px;
+}
+
+#dataName
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+  gap:22px;
+  color:#666666;
+  font-size:16px;
+  padding:6px;
+}
+
+#inputData
+{
+  border:none;
+  outline:none;
+  font-size:16px;
+  
+}
+
+#inputData>input, #optionData
+{
+  padding:6px;
+  border-radius:4px;
+  border: 1px solid #DDDDDD;
+  outline:none;
+  font-size:16px;
+}
+
+#inputData>textarea
+{
+  padding:6px;
+  border-radius:4px;
+  border: 1px solid #DDDDDD;
+  outline:none;
+  font-size:16px;
+  height:80px;
+}
+
+
+
+

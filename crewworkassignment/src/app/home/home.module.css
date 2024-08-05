@@ -1,0 +1,160 @@
+
+.greeting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.featuresIntro {
+    width: 330px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #F4F4F4;
+    border-radius: 4px;
+}
+
+.featuresIntro>p
+{
+    margin-top:5px;
+    font-size:14px;
+    color:#868686;
+    font-weight:400;
+}
+.featuresIntro>span
+{
+    
+    font-size:16px;
+    font-weight:600;
+    color:#757575;
+}
+
+.functionalitybar
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 10px;
+}
+
+.searchBar
+{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#FFFFFF;
+    border:1px solid E9E9E9;
+    padding-right:5px;
+    border-radius:8px;
+}
+
+.searchBar>input
+{
+    border:none;
+    background:none;
+    padding:8px;
+    outline:none;
+   
+}
+
+.methods
+{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    padding:8px;
+}
+.item
+{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:#797979;
+    font-size:16px;
+}
+
+.createTaskBtn {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    padding: 4px;
+    border: 1px solid;
+    background: linear-gradient(360deg, #4B36CC 0%, #9C93D4 107.69%);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .createTaskBtn:hover
+  {
+    background: linear-gradient(360deg, #3636cc 0%, #9393d4e2 107.69%);
+  }
+  
+  #createTaskBtnIcon
+  {
+    width:24px;
+    height:24px;
+    color:#FFFFFF;
+  }
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .featuresIntro {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .greeting {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #icon {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .featuresIntro h6 {
+        font-size: 1rem;
+    }
+
+    .featuresIntro p {
+        font-size: 0.875rem;
+    }
+
+    .greeting h1 {
+        font-size: 1.5rem;
+    }
+
+    #icon {
+        font-size: 0.875rem;
+    }
+}
