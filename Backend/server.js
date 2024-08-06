@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB  from './config/db.js';
 import authRoutes from './routes/authRoutes.js'
+import taskRoutes from './routes/taskRoutes.js'
 import cors from 'cors'
 import path from 'path'
 
@@ -23,6 +24,7 @@ app.use(express.urlencoded({extended:true}))
 
 // routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/task", taskRoutes);
 
 
 
@@ -32,5 +34,5 @@ const PORT= process.env.PORT||800;
 // run listen
 app.listen(PORT,()=>{
     console.log(`server is running on ${PORT}`.bgCyan.white); 
-    console.log(process.env.JWT_SECRET);
+   
 })

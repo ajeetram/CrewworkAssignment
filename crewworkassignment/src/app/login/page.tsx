@@ -62,7 +62,7 @@ export default function login() {
   return (
     <div className={styles.authcontainer}>
       <div className={styles.authform}>
-      <h2>Welcome to <span>Workflo</span>!</h2>
+      <h2>Welcome to <span>Task Manager</span>!</h2>
       <div className={styles.formInput}>
           <input type="email" placeholder="Your email" name="email" required onChange={handleEmailChange} />
         </div>

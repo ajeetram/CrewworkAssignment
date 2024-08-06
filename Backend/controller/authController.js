@@ -49,7 +49,7 @@ export const loginController = async(req,res)=>{
             user:{
                 name:user.name,
                 email:user.email,
-                role:user.__v,
+                userId:user._id,
     
             },
             token
@@ -105,7 +105,12 @@ export const registerController = async(req, res)=>{
         res.status(201).send({
             success:true,
             message:"user registered successfully",
-            user,
+            user:{
+                name:user.name,
+                email:user.email,
+                id:user.__id,
+            },
+            token
         })
         
     } catch (error) {
