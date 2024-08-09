@@ -102,3 +102,35 @@ export const deleteTask = async (req, res) => {
     });
   }
 };
+
+
+export const onDragUpdateList = async(req,res)=>{
+  try {
+    const {status} = req.body;
+    const {taskId} = req.params;
+    const Task = await task.findById(taskId);
+
+    const updatedTask = await task.findByIdAndUpdate(taskId,{
+      status:status,
+      title:Task.title,
+      description:Task.description,
+      priority:Task.priority,
+      deadline:Task.deadline,
+      userId:Task.userId
+    },{new:true}
+     )
+
+     res.status(201).send({
+      success:true,
+      message:"On Drage & Drop successfully updated status list",
+      updatedTask
+     })
+    
+  } catch (error) {
+    res.status(500).send({
+      success:false,
+      message:"Error while On Drag and drop updating list",
+      error
+    })
+  }
+}

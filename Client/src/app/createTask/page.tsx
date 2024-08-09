@@ -21,8 +21,10 @@ interface Task {
 }
 
 const CreateTask: React.FC = () => {
-  const { isVisible, setIsVisible, auth } = useMyContext();
+  const { isVisible, setIsVisible, auth ,callTask, setCallTask} = useMyContext();
   const [isFullscr, setFullscr] = useState<boolean>(false);
+  
+
   const [task, setTask] = useState<Task>({
     status: "Not selected",
     title: "",
@@ -48,6 +50,7 @@ const CreateTask: React.FC = () => {
       if (task.status === "Not selected" || task.priority === "Not selected") {
         return toast.error("Please select an option");
       }
+      setCallTask(true);
       const response = await fetch(
         "http://localhost:8080/api/v1/task/createtask",
         {
@@ -61,7 +64,7 @@ const CreateTask: React.FC = () => {
       );
 
       if (response.ok) {
-        const createdTask = await response.json();
+        
         toast.success("Task created successfully");
         setTask({
           status: "To do",
@@ -72,6 +75,7 @@ const CreateTask: React.FC = () => {
           userId: auth?.userId, 
         });
         setIsVisible(false);
+        setCallTask(false);
       } else {
         toast.error("Failed to create task");
       }
@@ -79,10 +83,6 @@ const CreateTask: React.FC = () => {
       console.error("Error:", error);
       toast.error("Error while creating task!");
     }
-  };
-
-  const openPopup = () => {
-    setIsVisible(true);
   };
 
   const closePopup = () => {

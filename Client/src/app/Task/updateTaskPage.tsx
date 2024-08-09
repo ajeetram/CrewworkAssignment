@@ -32,7 +32,7 @@ const UpdateTaskPage: React.FC<UpdateTaskPageProps> = ({
   setUpdatePopup,
   updatePopup,
 }) => {
-  const { auth } = useMyContext();
+  const { auth,setCallTask } = useMyContext();
   const [isFullscr, setFullscr] = useState<boolean>(false);
   const [task, setTask] = useState<Task>({
     taskId: updateTask.taskId,
@@ -77,6 +77,7 @@ const UpdateTaskPage: React.FC<UpdateTaskPageProps> = ({
       const data = await res.json();
 
       if (data.success) {
+        setCallTask(true);
         toast.dismiss(toastId);
         toast.success("Task updated successfully");
         setUpdatePopup(false);
@@ -87,10 +88,6 @@ const UpdateTaskPage: React.FC<UpdateTaskPageProps> = ({
       console.error("Error:", error);
       toast.error("Error in task update! " + (error as Error).message);
     }
-  };
-
-  const openPopup = () => {
-    setUpdatePopup(true);
   };
 
   const closePopup = () => {

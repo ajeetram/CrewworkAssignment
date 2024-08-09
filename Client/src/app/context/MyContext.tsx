@@ -1,14 +1,19 @@
-import { createContext,useEffect, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 interface MyContextProps {
   isVisible: boolean;
   setIsVisible: (value: boolean) => void;
+  auth: any;
+  setAuth: (value: any) => void;
+  callTask: boolean;
+  setCallTask: (value: boolean) => void;
 }
 
 const MyContext = createContext<MyContextProps | undefined>(undefined);
 
 export const MyProvider = ({ children }: { children: ReactNode }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [callTask, setCallTask] = useState<boolean>(false);
   const [auth, setAuth] = useState({
     user: null,
     token: "",
@@ -23,15 +28,19 @@ export const MyProvider = ({ children }: { children: ReactNode }) => {
         ...auth,
         user: parseData.user,
         token: parseData.token,
-        userId:parseData.user.userId,
+        userId: parseData.user?.userId,
       });
     }
-    // below comment is used to prevent multiple re-rendering means need to disable dependencies
-    //eslint-disable-next-line
   }, []);
-  
+
   return (
-    <MyContext.Provider value={{ isVisible, setIsVisible,auth,setAuth}}>
+    <MyContext.Provider value={{ 
+      isVisible, 
+      setIsVisible,
+      auth,
+      setAuth,
+      callTask,
+      setCallTask }}>
       {children}
     </MyContext.Provider>
   );

@@ -34,9 +34,9 @@ export default function login() {
         },
       });
       const data = await res.json();
-      if(res && res.ok)
+      if(data && data.success)
       {
-        toast.success(data.message);
+       
         setAuth({...auth,
           user:data.user,
           token:data.token,
@@ -44,6 +44,7 @@ export default function login() {
         })
         localStorage.setItem("auth", JSON.stringify(data))
         router.push('/dashboard');
+        toast.success(data.message);
       }
       else
       {
